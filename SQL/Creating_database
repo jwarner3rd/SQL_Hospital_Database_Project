@@ -1,0 +1,253 @@
+-- Creating Hospital Database
+
+DROP DATABASE IF EXISTS HospitalDB;
+CREATE DATABASE HospitalDB;
+
+-- Database selected
+
+USE HospitalDB;
+
+-- Creating Patient Table
+DROP TABLE IF EXISTS Patient;
+
+Create table Patient ( 
+	Patient_ID INT NOT NULL, 
+	Patient_FName VARCHAR(100) NOT NULL, 
+	Patient_LName VARCHAR(100) NOT NULL,
+	dob DATE, 
+	Patient_race VARCHAR(10),
+	Blood_type VARCHAR(5),
+	Patient_Address VARCHAR(100), 
+	Patient_Email VARCHAR(100), 
+	Patient_phone VARCHAR(15),
+	Patient_Gender VARCHAR(100),
+	Patient_Emergency_Contact INT,
+	PCP INT, 
+	Constraint Patient_PK Primary Key (Patient_ID),
+	Constraint Patient_Doc_FK Foreign Key (PCP) references Doctor (Doctor_ID)
+); 
+
+-- Create Doctor Table
+DROP TABLE IF EXISTS Doctor;
+
+Create Table Doctor( 
+	Doctor_ID INT NOT NULL, 
+	Doctor_FName VARCHAR(100), 
+	Doctor_LName VARCHAR(100), 
+	Doctor_dob DATE, 
+	Doctor_Gender VARCHAR(100), 
+	Doctor_Address VARCHAR(100), 
+	Doctor_Email VARCHAR(100),
+	Doctor_phone VARCHAR(15),
+	Constraint Doctor_PK Primary Key (Doctor_ID) 
+); 
+
+-- Creat Nurses Table
+DROP TABLE IF EXISTS Nurse;
+
+Create Table Nurse( 
+	Nurse_ID INT NOT NULL, 
+	Nurse_FName VARCHAR(100), 
+	Nurse_LName VARCHAR(100), 
+	Nurse_dob DATE, 
+	Nurse_Gender VARCHAR(100), 
+	Nurse_Address VARCHAR(100), 
+	Nurse_Email VARCHAR(100),
+	Nurse_phone VARCHAR(15),
+	Constraint Nurse_PK Primary Key (Nurse_ID) 
+); 
+
+-- Adding Room table 
+
+DROP TABLE IF EXISTS Room;
+
+Create Table Room( 
+	Room_no VARCHAR(50) NOT NULL, 
+	Room_type VARCHAR(100), 
+	Room_availibility boolean, 
+	Room_Cost  DECIMAL(10,2),
+	Constraint Room_PK Primary Key (Room_no) 
+); 
+-- Adding check in and out
+
+DROP TABLE IF EXISTS Check_IN_OUT;
+
+Create Table Check_IN_OUT( 
+	Stay_ID INT NOT NULL,
+	Patient_ID INT Not NUll, 
+	Room_no VARCHAR (50) Not Null, 
+	Join_date datetime, 
+	Leave_date datetime, 
+	Discharge_status VARCHAR (50),
+	Constraint Check_IN_OUT_PK Primary Key (Stay_ID),
+	Constraint Patient_IN_FK Foreign Key (Patient_ID) references Patient (Patient_ID),
+	Constraint Room_no_FK Foreign Key (Room_no) references Room (Room_no)
+);
+
+-- Adding table for Emergency Contact
+
+DROP TABLE IF EXISTS Emergency_Contact;
+
+CREATE TABLE Emergency_Contact(
+    Contact_ID INT  NOT NULL,
+    Contact_Name VARCHAR(20) NOT NULL,
+    Phone VARCHAR(12) NOT NULL,
+    Relation VARCHAR(20) NOT NULL,
+    Patient_ID  INT NOT NULL,
+    Constraint Contact_ID_PK PRIMARY KEY (Contact_ID),
+    Constraint Patient_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID)
+);
+
+DROP TABLE IF EXISTS Lab_Screening;
+
+CREATE TABLE  Lab_Screening (
+    Lab_ID INT NOT NULL,
+    Patient_ID  INT  NOT NULL,
+    Technician_ID  INT  NOT NULL,
+    Doctor_ID  INT NOT NULL,
+    Test_Cost  DECIMAL(10,2),
+    Date  DATE  NOT NULL,
+    Constraint Lab_ID_PK PRIMARY KEY (Lab_ID),
+    Constraint Patient_LS_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID),
+    Constraint Doctor_LS_FK FOREIGN KEY (Doctor_ID) REFERENCES Doctor (Doctor_ID),
+	Constraint Technician_LS_FK FOREIGN KEY (Technician_ID) REFERENCES Techinican (Technician_ID)
+);
+
+DROP TABLE IF EXISTS Medicine;
+
+CREATE TABLE Medicine (
+    Medicine_ID INT  NOT NULL,
+    Med_Name VARCHAR(20) NOT NULL,
+    Med_Quantity INT NOT NULL,
+    Med_Cost  Decimal(10,2),
+   Constraint Medicine_ID_PK PRIMARY KEY (Medicine_ID)
+);
+    
+DROP TABLE IF EXISTS Prescription;
+    
+CREATE TABLE Prescription (
+    Prescription_ID INT NOT NULL,
+    Patient_ID INT NOT NULL,
+    Medicine_ID INT NOT NULL,
+    Date_start DATE,
+    Quanitity INT NOT NULL,
+    Dosage INT, -- Dosage is number of times in a day
+    Doctor_ID INT NOT NULL,
+    Constraint Prescription_ID_PK PRIMARY KEY (Prescription_ID),
+    Constraint Patient_ID_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID),
+    Constraint Doctor_ID_FK FOREIGN KEY (Doctor_ID) REFERENCES Doctor (Doctor_ID),
+    Constraint Medicine_ID_FK FOREIGN KEY (Medicine_ID) REFERENCES Medicine (Medicine_ID)
+);
+    
+ DROP TABLE IF EXISTS Appointment;
+ 
+CREATE TABLE Appointment (
+    Appt_ID INT NOT NULL,
+    Scheduled_On DATETIME NOT NULL,
+    Appt_Date DATE,
+    Appt_Time TIME,
+    Appt_kept Boolean,
+    Doctor_ID INT NOT NULL,
+    Patient_ID  INT NOT NULL,
+    Constraint Appt_ID_PK PRIMARY KEY (Appt_ID),
+    Constraint Doctor_FK FOREIGN KEY (Doctor_ID) REFERENCES Doctor (Doctor_ID), 
+    Constraint Patient_Appt_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID)
+);
+
+DROP TABLE IF EXISTS Diagnosis;
+
+CREATE TABLE Diagnosis (
+	Patient_ID INT NOT NULL,
+    Doctor_ID  INT NOT NULL,
+    Diagnosis_ID INT NOT NULL,
+    Diagnosis VARCHAR(30) NOT NULL, 
+    Lab_ID INT,
+    Test_ID INT,
+    since DATE NOT NULL, 
+    enddate DATE,
+    Constraint Diagnosis_ID_PK PRIMARY KEY (Diagnosis_ID),
+	Constraint Doctor_D_FK FOREIGN KEY (Doctor_ID) REFERENCES Doctor (Doctor_ID),
+	Constraint Lab_D_FK FOREIGN KEY (Lab_ID) REFERENCES Lab_Screening (Lab_ID),
+	Constraint Patient_D_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID),
+    Constraint Test_D_FK FOREIGN KEY (Test_ID) REFERENCES Test (Test_ID)
+);
+    
+DROP TABLE IF EXISTS Vitals_rounds;
+
+CREATE TABLE Vitals_rounds (
+	Vitals_rounds_ID INT NOT NULL,
+    Patient_ID  INT  NOT NULL,
+    Nurse_ID INT,
+    BP_Systolic INT,
+    BP_Diastolic INT,
+    O2_Saturation INT,
+    Temp INT,
+    Date DATETIME,
+    Med_dispense_ID INT NOT NULL,
+	Constraint Vitals_rounds_ID_PK PRIMARY KEY (Vitals_rounds_ID),
+    Constraint Patient_VR_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID),
+    Constraint Nurse_VR_FK FOREIGN KEY (Nurse_ID) REFERENCES Nurse (Nurse_ID),
+    Constraint Med_dispense_VR_FK FOREIGN KEY (Med_dispense_ID) REFERENCES Med_dispense (Med_dispense_ID)
+);
+
+DROP TABLE IF EXISTS Techinican;
+
+CREATE TABLE Techinican (
+	Technician_ID INT NOT NULL,
+    Technician_FName VARCHAR(100), 
+	Technician_LName VARCHAR(100), 
+	Technician_dob DATE, 
+	Technician_Gender VARCHAR(100), 
+	Technician_Address VARCHAR(100), 
+	Technician_Email VARCHAR(100),
+	Technician_phone VARCHAR(15),
+	Constraint Technician_PK Primary Key (Technician_ID) 
+    );
+
+DROP TABLE IF EXISTS Test;
+
+CREATE TABLE Test (
+	Test_ID INT NOT NULL,
+    Test_Name VARCHAR(100),
+	Patient_ID  INT  NOT NULL,
+    Doctor_ID INT NOT NULL,
+    Technician_ID INT NOT NULL,
+    Test_result VARCHAR(100),
+	Constraint Test_ID_PK PRIMARY KEY (Test_ID),
+	Constraint Patient_Test_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID),
+	Constraint Doctor_Test_FK FOREIGN KEY (Doctor_ID) REFERENCES Doctor (Doctor_ID),
+	Constraint Technician_Test_FK FOREIGN KEY (Technician_ID) REFERENCES Techinican (Technician_ID)
+);
+
+DROP TABLE IF EXISTS Treatment;
+
+CREATE TABLE Treatment (
+	Treatment_ID INT NOT NULL,
+	Treatment_Name VARCHAR(100),
+    Patient_ID  INT  NOT NULL,
+    Doctor_ID INT NOT NULL,
+    Nurse_ID INT,
+    Treatment_Date DATETIME,
+	Constraint Treatment_ID_PK PRIMARY KEY (Treatment_ID),
+	Constraint Patient_Treat_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID),
+	Constraint Doctor_Treat_FK FOREIGN KEY (Doctor_ID) REFERENCES Doctor (Doctor_ID),
+	Constraint Nurse_Treat_FK FOREIGN KEY (Nurse_ID) REFERENCES Nurse (Nurse_ID)
+);
+
+DROP TABLE IF EXISTS Med_dispense;
+
+CREATE TABLE Med_dispense (
+	Med_dispense_ID INT NOT NULL,
+    Patient_ID  INT  NOT NULL,
+    Doctor_ID INT NOT NULL,
+    Nurse_ID INT NOT NULL,
+    Medicine_ID INT  NOT NULL,
+    Prescription_ID INT NOT NULL,
+    Dispense_Date DATETIME,
+	Constraint Med_dispense_ID_PK PRIMARY KEY (Med_dispense_ID),
+	Constraint Patient_MD_FK FOREIGN KEY (Patient_ID) REFERENCES Patient (Patient_ID),
+	Constraint Doctor_MD_FK FOREIGN KEY (Doctor_ID) REFERENCES Doctor (Doctor_ID),
+	Constraint Nurse_MD_FK FOREIGN KEY (Nurse_ID) REFERENCES Nurse (Nurse_ID),
+	Constraint Medicine_MD_FK FOREIGN KEY (Medicine_ID) REFERENCES Medicine (Medicine_ID),
+    Constraint Prescription_MD_FK FOREIGN KEY (Medicine_ID) REFERENCES Prescription (Prescription_ID)
+);
