@@ -6,7 +6,7 @@ The hospital management system (HMS) helps track patients, their illnesses, doct
 
 - <B>Patient Management</B>: Stores patient details, stay information, and illness history.
 - <B>Doctor Assignment</B>: Links doctors to patients and records activity.
-- <B>Medicine Administration</B>: Tracks prescribed medicines based on patient illness.
+- <B>Medicine Administration</B>: Tracks prescribed and dispensed medications based on patient prescriptions and manages medication inventories through stored procedures, automatically reducing stock after dispensing and preventing further dispensing when medications are out of stock.
 - <B>Procedures and Treatments</B>: Monitors patient treatments and related dates.
 - <B>Staff Assignments</B>: Manages doctor, nurse, and technician allocations.
 
