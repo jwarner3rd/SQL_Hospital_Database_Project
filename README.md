@@ -11,7 +11,7 @@
 | Scheduled_On  | datetime    | NO   |      | NULL          |                |
 | Appt_Date     | date        | YES  |      | NULL          |                |
 | Appt_Time     | time        | YES  |      | NULL          |                |
-| Appt_kept     | tinyint     | YES  |      | 0             |                |
+| Appt_kept     | tinyint     | YES  |      | NULL            |                |
 | Doctor_ID     | int         | NO   | MUL  | NULL          |                |
 | Patient_ID    | int         | NO   | MUL  | NULL          |                |
 
