@@ -1,3 +1,18 @@
+# Project Overview
+
+This hospital database project is designed to explore database design and MySQL functions in a simulated hospital environment. While the system is not intended for real-world use, it aims to model key operational tasks that hospital staff would need to address, such as patient management, doctor assignments, procedures, and medicine administration. The goal is to test out database interactions, including the use of stored procedures and functions to improve user experience and reduce errors.
+
+The hospital management system (HMS) helps track patients, their illnesses, doctors, procedures, and prescribed medications. It also manages room assignments and keeps records of treatments and staff involvement. Key features of the system include:
+
+- Patient Management: Stores patient details and illness history.
+- Doctor Assignment: Links doctors to patients and records procedures.
+- Medicine Administration: Tracks prescribed medicines based on patient illness.
+- Procedures and Treatments: Monitors patient treatments and related dates.
+- Staff Assignments: Manages doctor, nurse, and technician allocations.
+
+This project also allowed me to test MySQL functions, such as normalization (up to 3NF), and design ER diagrams to visualize relationships between entities. The goal was to ensure the system is structured, efficient, and scalable, reducing errors and improving hospital operations.
+
+
 # EER Diagram of Hospital Database
 
 ![EER Diagram](https://github.com/jwarner3rd/SQL_Hospital_Database_Project/blob/main/Images/EER%20Hospital.png)
