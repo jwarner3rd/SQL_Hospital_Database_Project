@@ -37,6 +37,14 @@ This folder contains all the necessary SQL scripts for the Hospital Database Man
 
 ![EER Diagram](https://github.com/jwarner3rd/SQL_Hospital_Database_Project/blob/main/Images/EER%20Hospital.png)
 
+# Data Dictionary
+
+This data dictionary provides details on the tables, columns, and data types in the hospital database.
+
+For a detailed overview, download the data dictionary as a CSV file:
+[Download Data Dictionary (CSV)](docs/HospitalDB_datadictionary.csv
+)
+
 # Database Schema
 
 ### Appointment
