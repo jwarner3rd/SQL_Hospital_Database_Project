@@ -10,7 +10,7 @@ The hospital management system (HMS) helps track patients, their illnesses, doct
 - <B>Procedures and Treatments</B>: Monitors patient treatments and related dates.
 - <B>Staff Assignments</B>: Manages doctor, nurse, and technician allocations.
 
-This project also allowed me to test MySQL functions, such as normalization (up to 3NF), and design ER diagrams to visualize relationships between entities. The goal was to ensure the system is structured, efficient, and scalable, reducing errors and improving hospital operations.
+This project also allowed me to test MySQL functions, such as normalization, and design ER diagrams to visualize relationships between entities. The goal was to ensure the system is structured, efficient, and scalable, reducing errors and improving hospital operations.
 
 
 # EER Diagram of Hospital Database
