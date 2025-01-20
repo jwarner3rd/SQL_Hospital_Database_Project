@@ -4,7 +4,7 @@ This hospital database project is designed to explore database design and MySQL 
 
 The hospital management system (HMS) helps track patients, their illnesses, doctors, procedures, and prescribed medications. It also manages room assignments and keeps records of treatments and staff involvement. Key features of the system include:
 
-- Patient Management: Stores patient details and illness history.
+- <B>Patient Management</B>: Stores patient details and illness history.
 - Doctor Assignment: Links doctors to patients and records procedures.
 - Medicine Administration: Tracks prescribed medicines based on patient illness.
 - Procedures and Treatments: Monitors patient treatments and related dates.
