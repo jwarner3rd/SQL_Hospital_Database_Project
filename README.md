@@ -4,10 +4,10 @@ This hospital database project is designed to explore database design and MySQL 
 
 The hospital management system (HMS) helps track patients, their illnesses, doctors, procedures, and prescribed medications. It also manages room assignments and keeps records of treatments and staff involvement. Key features of the system include:
 
-- <B>Patient Management</B>: Stores patient details, stay information, and illness history.
+- <B>Patient Management</B>: Stores patient details, stay information, illness history, and follow up aftercare appointments.
 - <B>Doctor Assignment</B>: Links doctors to patients and records activity.
 - <B>Medicine Administration</B>: Tracks prescribed and dispensed medications based on patient prescriptions and manages medication inventories through stored procedures, automatically reducing stock after dispensing and preventing further dispensing when medications are out of stock.
-- <B>Procedures and Treatments</B>: Monitors patient treatments and related dates.
+- <B>Procedures and Treatments</B>: Monitors patient treatments, tests, lab results, and related dates.
 - <B>Staff Assignments</B>: Manages doctor, nurse, and technician allocations.
 
 This project also allowed me to test MySQL functions, such as normalization, and design ER diagrams to visualize relationships between entities. The goal was to ensure the system is structured, efficient, and scalable, reducing errors and improving hospital operations.
