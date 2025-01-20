@@ -4,7 +4,7 @@
 
 # Database Schema
 
-## Appointment
+### Appointment
 | Column Name   | Data Type   | Null | Key  | Default       | Extra          |
 |---------------|-------------|------|------|---------------|----------------|
 | Appt_ID       | int         | NO   | PRI  | NULL          | auto_increment |
@@ -17,7 +17,7 @@
 
 ---
 
-## Check_IN_OUT
+### Check_IN_OUT
 | Column Name       | Data Type   | Null | Key  | Default       | Extra          |
 |-------------------|-------------|------|------|---------------|----------------|
 | Stay_ID           | int         | NO   | PRI  | NULL          | auto_increment |
@@ -29,7 +29,7 @@
 
 ---
 
-## Diagnosis
+### Diagnosis
 | Column Name   | Data Type     | Null | Key  | Default       | Extra          |
 |---------------|---------------|------|------|---------------|----------------|
 | Patient_ID    | int           | NO   | MUL  | NULL          |                |
@@ -43,7 +43,7 @@
 
 ---
 
-## Doctor
+### Doctor
 | Column Name     | Data Type     | Null | Key  | Default       | Extra          |
 |-----------------|---------------|------|------|---------------|----------------|
 | Doctor_ID       | int           | NO   | PRI  | NULL          |                |
@@ -57,7 +57,7 @@
 
 ---
 
-## Emergency_Contact
+### Emergency_Contact
 | Column Name     | Data Type     | Null | Key  | Default       | Extra          |
 |-----------------|---------------|------|------|---------------|----------------|
 | Contact_ID      | int           | NO   | PRI  | NULL          |                |
@@ -68,7 +68,7 @@
 
 ---
 
-## Lab_Screening
+### Lab_Screening
 | Column Name    | Data Type     | Null | Key  | Default       | Extra          |
 |----------------|---------------|------|------|---------------|----------------|
 | Lab_ID         | int           | NO   | PRI  | NULL          | auto_increment |
@@ -80,7 +80,7 @@
 
 ---
 
-## Med_dispense
+### Med_dispense
 | Column Name         | Data Type   | Null | Key  | Default       | Extra          |
 |---------------------|-------------|------|------|---------------|----------------|
 | Med_dispense_ID     | int         | NO   | PRI  | NULL          | auto_increment |
@@ -90,7 +90,7 @@
 
 ---
 
-## Medicine
+### Medicine
 | Column Name    | Data Type     | Null | Key  | Default       | Extra          |
 |-----------------|---------------|------|------|---------------|----------------|
 | Medicine_ID    | int(10)      | NO   | PRI  | NULL          |                |
@@ -98,9 +98,9 @@
 | Med_Quantity   | int(10)      | NO   |      | NULL          |                |
 | Med_Cost       | decimal(10,2)| YES  |      | NULL          |                |
 
---
+---
 
-## Nurse
+### Nurse
 | Column Name     | Data Type     | Null | Key  | Default       | Extra          |
 |------------------|---------------|------|------|---------------|----------------|
 | Nurse_ID         | int(10)      | NO   | PRI  | NULL          |                |
@@ -112,9 +112,9 @@
 | Nurse_Email      | varchar(100) | YES  |      | NULL          |                |
 | Nurse_phone      | varchar(15)  | YES  |      | NULL          |                |
 
---
+---
 
-## Patient
+### Patient
 | Column Name               | Data Type     | Null | Key  | Default       | Extra |
 |---------------------------|---------------|------|------|---------------|-------|
 | Patient_ID                | int           | NO   | PRI  | NULL          |       |
@@ -132,7 +132,7 @@
 
 ---
 
-## Prescription
+### Prescription
 | Column Name         | Data Type     | Null | Key  | Default       | Extra          |
 |---------------------|---------------|------|------|---------------|----------------|
 | Prescription_ID     | int           | NO   | PRI  | NULL          | auto_increment |
@@ -146,7 +146,7 @@
 
 ---
 
-## Room
+### Room
 | Column Name         | Data Type     | Null | Key  | Default       | Extra          |
 |---------------------|---------------|------|------|---------------|----------------|
 | Room_no             | varchar(50)  | NO   | PRI  | NULL          |                |
@@ -154,9 +154,9 @@
 | Room_availibility   | tinyint(3)   | YES  |      | NULL          |                |
 | Room_Cost           | decimal(10,2)| YES  |      | NULL          |                |
 
--- 
+--- 
 
-## Technician
+### Technician
 | Column Name          | Data Type     | Null | Key  | Default       | Extra          |
 |----------------------|---------------|------|------|---------------|----------------|
 | Technician_ID        | int(10)      | NO   | PRI  | NULL          |                |
@@ -168,9 +168,9 @@
 | Technician_Email     | varchar(100) | YES  |      | NULL          |                |
 | Technician_phone     | varchar(15)  | YES  |      | NULL          |                |
 
---
+---
 
-## Test
+### Test
 | Column Name     | Data Type     | Null | Key  | Default       | Extra          |
 |------------------|---------------|------|------|---------------|----------------|
 | Test_ID          | int(10)      | NO   | PRI  | NULL          | auto_increment |
@@ -180,9 +180,9 @@
 | Technician_ID    | int(10)      | NO   | MUL  | NULL          |                |
 | Test_result      | varchar(100) | YES  |      | NULL          |                |
 
---
+---
 
-## Treatment
+### Treatment
 | Column Name       | Data Type     | Null | Key  | Default       | Extra          |
 |-------------------|---------------|------|------|---------------|----------------|
 | Treatment_ID      | int(10)      | NO   | PRI  | NULL          | auto_increment |
@@ -192,9 +192,9 @@
 | Nurse_ID          | int(10)      | YES  | MUL  | NULL          |                |
 | Treatment_Date    | datetime     | YES  |      | NULL          |                |
 
---
+---
 
-## Vitals_Rounds
+### Vitals_Rounds
 | Column Name         | Data Type     | Null | Key  | Default       | Extra          |
 |---------------------|---------------|------|------|---------------|----------------|
 | Vitals_rounds_ID    | int           | NO   | PRI  | NULL          | auto_increment |
