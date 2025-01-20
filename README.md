@@ -1,4 +1,4 @@
-
+# EER Diagram of Hospital Database
 
 ![EER Diagram](https://github.com/jwarner3rd/SQL_Hospital_Database_Project/blob/main/Images/EER%20Hospital.png)
 
