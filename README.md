@@ -90,6 +90,30 @@
 
 ---
 
+## Medicine
+| Column Name    | Data Type     | Null | Key  | Default       | Extra          |
+|-----------------|---------------|------|------|---------------|----------------|
+| Medicine_ID    | int(10)      | NO   | PRI  | NULL          |                |
+| Med_Name       | varchar(20)  | NO   |      | NULL          |                |
+| Med_Quantity   | int(10)      | NO   |      | NULL          |                |
+| Med_Cost       | decimal(10,2)| YES  |      | NULL          |                |
+
+--
+
+## Nurse
+| Column Name     | Data Type     | Null | Key  | Default       | Extra          |
+|------------------|---------------|------|------|---------------|----------------|
+| Nurse_ID         | int(10)      | NO   | PRI  | NULL          |                |
+| Nurse_FName      | varchar(100) | YES  |      | NULL          |                |
+| Nurse_LName      | varchar(100) | YES  |      | NULL          |                |
+| Nurse_dob        | date         | YES  |      | NULL          |                |
+| Nurse_Gender     | varchar(100) | YES  |      | NULL          |                |
+| Nurse_Address    | varchar(100) | YES  |      | NULL          |                |
+| Nurse_Email      | varchar(100) | YES  |      | NULL          |                |
+| Nurse_phone      | varchar(15)  | YES  |      | NULL          |                |
+
+--
+
 ## Patient
 | Column Name               | Data Type     | Null | Key  | Default       | Extra |
 |---------------------------|---------------|------|------|---------------|-------|
@@ -121,6 +145,54 @@
 | End_date            | date          | YES  |      | NULL          |                |
 
 ---
+
+## Room
+| Column Name         | Data Type     | Null | Key  | Default       | Extra          |
+|---------------------|---------------|------|------|---------------|----------------|
+| Room_no             | varchar(50)  | NO   | PRI  | NULL          |                |
+| Room_type           | varchar(100) | YES  |      | NULL          |                |
+| Room_availibility   | tinyint(3)   | YES  |      | NULL          |                |
+| Room_Cost           | decimal(10,2)| YES  |      | NULL          |                |
+
+-- 
+
+## Technician
+| Column Name          | Data Type     | Null | Key  | Default       | Extra          |
+|----------------------|---------------|------|------|---------------|----------------|
+| Technician_ID        | int(10)      | NO   | PRI  | NULL          |                |
+| Technician_FName     | varchar(100) | YES  |      | NULL          |                |
+| Technician_LName     | varchar(100) | YES  |      | NULL          |                |
+| Technician_dob       | date         | YES  |      | NULL          |                |
+| Technician_Gender    | varchar(100) | YES  |      | NULL          |                |
+| Technician_Address   | varchar(100) | YES  |      | NULL          |                |
+| Technician_Email     | varchar(100) | YES  |      | NULL          |                |
+| Technician_phone     | varchar(15)  | YES  |      | NULL          |                |
+
+--
+
+## Test
+| Column Name     | Data Type     | Null | Key  | Default       | Extra          |
+|------------------|---------------|------|------|---------------|----------------|
+| Test_ID          | int(10)      | NO   | PRI  | NULL          | auto_increment |
+| Test_Name        | varchar(100) | YES  |      | NULL          |                |
+| Patient_ID       | int(10)      | NO   | MUL  | NULL          |                |
+| Doctor_ID        | int(10)      | NO   | MUL  | NULL          |                |
+| Technician_ID    | int(10)      | NO   | MUL  | NULL          |                |
+| Test_result      | varchar(100) | YES  |      | NULL          |                |
+
+--
+
+## Treatment
+| Column Name       | Data Type     | Null | Key  | Default       | Extra          |
+|-------------------|---------------|------|------|---------------|----------------|
+| Treatment_ID      | int(10)      | NO   | PRI  | NULL          | auto_increment |
+| Treatment_Name    | varchar(100) | YES  |      | NULL          |                |
+| Patient_ID        | int(10)      | NO   | MUL  | NULL          |                |
+| Doctor_ID         | int(10)      | NO   | MUL  | NULL          |                |
+| Nurse_ID          | int(10)      | YES  | MUL  | NULL          |                |
+| Treatment_Date    | datetime     | YES  |      | NULL          |                |
+
+--
 
 ## Vitals_Rounds
 | Column Name         | Data Type     | Null | Key  | Default       | Extra          |
