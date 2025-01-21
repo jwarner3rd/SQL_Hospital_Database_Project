@@ -33,8 +33,6 @@ This folder contains all the necessary SQL scripts for the Hospital Database Man
 2. Populate the database with initial data by running the `seed.sql` file.
 3. Refer to the `procedures/` and `triggers/` directories for individual stored procedures and triggers if needed.
 
-## Database Normalization
-
 # EER Diagram of Hospital Database
 
 ![EER Diagram](https://github.com/jwarner3rd/SQL_Hospital_Database_Project/blob/main/Images/EER%20Hospital.png)
