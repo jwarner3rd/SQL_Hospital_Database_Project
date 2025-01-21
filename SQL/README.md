@@ -2,38 +2,49 @@
 
 The HospitalDB database simulates a hospital management database, demonstrating SQL functionality, including triggers and stored procedures. It automates tasks like updating room availability, enforcing prescription dosage limits, and maintaining consistency across interrelated tables such as patients, rooms, and medications.
 
-The Repository includes:
+Included Files and Features:
 
 #### **Hospital_Export_Full.sql**: 
-This file contains the full SQL code to create the entire database structure. It includes the creation of tables, relationships, constraints, as well as triggers and stored procedures.
+Contains the SQL code to create the database structure, including tables, relationships, constraints, triggers, and stored procedures.
 
 #### **seed.sql**: 
-A script to populate the database with initial data, allowing for testing and demonstration purposes.
+Populates the database with test data for demonstration and testing purposes.
 
 #### **Stored Procedures/**: 
 Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
 
-- **AddDiagnosis.sql**: Inserts a patient's diagnosis information into the Diagnosis table, including the attending doctor, patient ID, diagnosis start date, and related details.
+- **AddDiagnosis.sql**:
+Adds a patient's diagnosis to the Diagnosis table, including attending doctor, patient ID, diagnosis start date, and related details.
 
-- **AddLabScreening.sql**: Inserts lab screening details into the Lab_Screening table, including patient ID, technician, doctor, cost, and date of the screening.
+- **AddLabScreening.sql**:
+Logs lab screening details in the Lab_Screening table, including patient ID, technician, doctor, cost, and screening date.
 
-- **AddPrescription.sql**: Inserts records for prescription details such as the prescribed medicine, dosage, prescription duration, prescribing doctor, start date, and patient ID.
+- **AddPrescription.sql**:
+Creates records in the Prescription table, specifying prescribed medicines, dosage, duration, prescribing doctor, start date, and patient ID.
 
-- **AddTest.sql**: Logs test information, including the test name, ordering doctor, associated technician, test date, results, and patient ID.
+- **AddTest.sql**:
+Records test information in the Test table, including test name, ordering doctor, associated technician, test date, results, and patient ID.
 
-- **AddVitalsRounds.sql**:  Records vital signs and rounds information, including date/time, nurse details, oxygen levels, blood pressure, temperature, patient ID, and stay ID.
+- **AddVitalsRounds.sql**:
+Logs vital signs and patient rounds in the Vitals_Rounds table, capturing date/time, nurse details, oxygen levels, blood pressure, temperature, patient ID, and stay ID.
 
-- **CalculatePatientCharges.sql**: Summarizes patient charges based on room type (shared or single), number of days, and medications dispensed. Includes start and end dates, patient name, and primary care physician (PCP).
+- **CalculatePatientCharges.sql**:
+Calculates and summarizes patient charges based on room type (shared or single), stay duration, and medications dispensed. Includes start and end dates, patient name, and primary care physician (PCP).
 
-- **CheckIn.sql**: Facilitates patient check-in by recording the check-in date and room assignment in the Check_IN_OUT table.
+- **CheckIn.sql**:
+Manages patient check-in by recording the check-in date and assigning a room in the Check_IN_OUT table.
 
-- **ClosePatientStay.sql**: Facilitates patient discharge by recording the discharge date and status in the Check_IN_OUT table.
+- **ClosePatientStay.sql**:
+Handles patient discharge by updating the discharge date and stay status in the Check_IN_OUT table.
 
-- **CurrentStaySummary.sql**: Provides a summary of current patients, including details about their most recent rounds, medications dispensed, oxygen levels, and blood pressure.
+- **CurrentStaySummary.sql**:
+Provides a real-time summary of current patient stays, including recent rounds, medications dispensed, oxygen levels, blood pressure, and other vitals.
 
-- **DispenseMedicine.sql**: Logs medications dispensed based on prescription information, linked to the associated Vitals_RoundsID.
+- **DispenseMedicine.sql**:
+Logs medications dispensed in the Med_dispense table, linking them to the corresponding Vitals_RoundsID and prescription details.
 
-- **Stay Summary.sql**: Provides a comprehensive summary of ongoing patient stays with no discharge date. Includes start date, room number, length of stay, PCP, medications, last rounds completed, attending nurse, and vital signs (blood pressure, temperature, oxygen levels).
+- **StaySummary.sql**:
+Generates a detailed summary of ongoing patient stays (those without a discharge date), including start date, room number, length of stay, PCP, medications, last rounds completed, attending nurse, and vitals like blood pressure, temperature, and oxygen levels.
 
 #### **triggers/**: 
 Contains individual SQL trigger files. These files define automatic actions that occur in response to changes in the database, such as inventory updates after medication dispensing.
@@ -47,6 +58,12 @@ Contains individual SQL trigger files. These files define automatic actions that
 - **AfterInsertMedDispenseTrigger**:  Reduces the Med_Quantity field in the Medicine table by 1 for the corresponding Medicine_ID when a new entry is added to the Med_dispense table, reflecting that medication has been dispensed.
 
 - **BeforeInsertMedDispenseTrigger**:  Ensures that the total medication dispensed for a specific prescription does not exceed the prescribed daily dosage. It checks the prescribed dosage against the total dispensed entries for the given prescription and date. If the daily dosage limit is exceeded, an error with the message "Daily dosage limit exceeded" is raised.
+
+### How to Use
+1- Run Hospital_Export_Full.sql to create the database schema.
+2- Use seed.sql to populate the database with sample data.
+3- Test database functionality with stored procedures and triggers to explore its features.
+
 
 # Database Schema
 
