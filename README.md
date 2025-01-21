@@ -2,7 +2,7 @@
 
 This hospital database project is designed to explore database design and MySQL functions in a simulated hospital environment. While the system is not intended for real-world use, it aims to model key operational tasks that hospital staff would need to address, such as patient management, doctor assignments, procedures, and medicine administration. The goal is to test out database interactions, including the use of stored procedures and functions to improve user experience and reduce errors.
 
-The hospital management system (HMS) helps track patients, their illnesses, doctors, procedures, and prescribed medications. It also manages room assignments and keeps records of treatments and staff involvement. Key features of the system include:
+The hospital database helps track patients, their illnesses, doctors, procedures, and prescribed medications. It also manages room assignments and keeps records of treatments and staff involvement. Key features of the system include:
 
 - **`Patient Management`**: Stores patient details, stay information, illness history, and follow up aftercare appointments.
 - **`Doctor Assignment`**: Links doctors to patients and records activity.
