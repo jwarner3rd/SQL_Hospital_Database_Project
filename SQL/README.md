@@ -30,7 +30,17 @@
 
 - **Stay Summary.sql**: Provides a comprehensive summary of ongoing patient stays with no discharge date. Includes start date, room number, length of stay, PCP, medications, last rounds completed, attending nurse, and vital signs (blood pressure, temperature, oxygen levels).
 
+# Triggers
 
+- **NewStayTrigger**:  Updates the Room_availibility field in the Room table to 0 (not available) when a new stay is added to the Check_IN_OUT table and the Leave_date is NULL, indicating that the room is currently occupied.
+
+- **UpdateLeaveDateTrigger**:  Updates the Room_availibility field in the Room table to 1 (available) when a stay's Leave_date is updated from NULL to a specific date, indicating that the room is now vacant.
+
+- **BeforeInsertCheckInOutTrigger**:  Checks room availability before inserting a new entry into the Check_IN_OUT table. If the room is unavailable, it raises an error with the message "Room is not available for check-in."
+
+- **AfterInsertMedDispenseTrigger**:  Reduces the Med_Quantity field in the Medicine table by 1 for the corresponding Medicine_ID when a new entry is added to the Med_dispense table, reflecting that medication has been dispensed.
+
+- **BeforeInsertMedDispenseTrigger**:  Ensures that the total medication dispensed for a specific prescription does not exceed the prescribed daily dosage. It checks the prescribed dosage against the total dispensed entries for the given prescription and date. If the daily dosage limit is exceeded, an error with the message "Daily dosage limit exceeded" is raised.
 
 # Database Schema
 
