@@ -8,35 +8,29 @@
 
 ## Stored Procedures
 
-- **AddDiagnosis.sql**:
+- **AddDiagnosis.sql**: Inserts a patient's diagnosis information into the Diagnosis table, including the attending doctor, patient ID, diagnosis start date, and related details.
 
-- **AddLabScreening.sql**:
+- **AddLabScreening.sql**: Inserts lab screening details into the Lab_Screening table, including patient ID, technician, doctor, cost, and date of the screening.
 
-- **AddPrescription.sql**:
+- **AddPrescription.sql**: Inserts records for prescription details such as the prescribed medicine, dosage, prescription duration, prescribing doctor, start date, and patient ID.
 
-- **AddTest.sql**:
+- **AddTest.sql**: Logs test information, including the test name, ordering doctor, associated technician, test date, results, and patient ID.
 
-- **AddVitalsRounds.sql**:
+- **AddVitalsRounds.sql**:  Records vital signs and rounds information, including date/time, nurse details, oxygen levels, blood pressure, temperature, patient ID, and stay ID.
 
-- **CalculatePatientCharges.sql**:
+- **CalculatePatientCharges.sql**: Summarizes patient charges based on room type (shared or single), number of days, and medications dispensed. Includes start and end dates, patient name, and primary care physician (PCP).
 
-- **CheckIn.sql**:
+- **CheckIn.sql**: Facilitates patient check-in by recording the check-in date and room assignment in the Check_IN_OUT table.
 
-- **ClosePatientStay.sql**:
+- **ClosePatientStay.sql**: Facilitates patient discharge by recording the discharge date and status in the Check_IN_OUT table.
 
-- **CurrentStaySummary.sql**:
+- **CurrentStaySummary.sql**: Provides a summary of current patients, including details about their most recent rounds, medications dispensed, oxygen levels, and blood pressure.
 
-- **DispenseMedicine.sql**:
+- **DispenseMedicine.sql**: Logs medications dispensed based on prescription information, linked to the associated Vitals_RoundsID.
 
-- **GenerateInvoice.sql**:
+- **Stay Summary.sql**: Provides a comprehensive summary of ongoing patient stays with no discharge date. Includes start date, room number, length of stay, PCP, medications, last rounds completed, attending nurse, and vital signs (blood pressure, temperature, oxygen levels).
 
-- **Stay Summary.sql**:
 
-- **StaySummary.sql**:
-
-- **Stay_Summary.sql**:
-
-- **new_procedure.sql**:
 
 # Database Schema
 
