@@ -14,34 +14,34 @@ Populates the database with test data for demonstration and testing purposes.
 Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
 
 - **AddDiagnosis.sql**:
-Adds a patient's diagnosis to the Diagnosis table, including attending doctor, patient ID, diagnosis start date, and related details.
+Adds a patient's diagnosis to the `Diagnosis` table, including attending doctor, patient ID, diagnosis start date, and related details.
 
 - **AddLabScreening.sql**:
-Logs lab screening details in the Lab_Screening table, including patient ID, technician, doctor, cost, and screening date.
+Logs lab screening details in the `Lab_Screening` table, including patient ID, technician, doctor, cost, and screening date.
 
 - **AddPrescription.sql**:
-Creates records in the Prescription table, specifying prescribed medicines, dosage, duration, prescribing doctor, start date, and patient ID.
+Creates records in the `Prescription` table, specifying prescribed medicines, dosage, duration, prescribing doctor, start date, and patient ID.
 
 - **AddTest.sql**:
-Records test information in the Test table, including test name, ordering doctor, associated technician, test date, results, and patient ID.
+Records test information in the `Test` table, including test name, ordering doctor, associated technician, test date, results, and patient ID.
 
 - **AddVitalsRounds.sql**:
-Logs vital signs and patient rounds in the Vitals_Rounds table, capturing date/time, nurse details, oxygen levels, blood pressure, temperature, patient ID, and stay ID.
+Logs vital signs and patient rounds in the `Vitals_Rounds` table, capturing date/time, nurse details, oxygen levels, blood pressure, temperature, patient ID, and stay ID.
 
 - **CalculatePatientCharges.sql**:
 Calculates and summarizes patient charges based on room type (shared or single), stay duration, and medications dispensed. Includes start and end dates, patient name, and primary care physician (PCP).
 
 - **CheckIn.sql**:
-Manages patient check-in by recording the check-in date and assigning a room in the Check_IN_OUT table.
+Manages patient check-in by recording the check-in date and assigning a room in the `Check_IN_OUT` table.
 
 - **ClosePatientStay.sql**:
-Handles patient discharge by updating the discharge date and stay status in the Check_IN_OUT table.
+Handles patient discharge by updating the discharge date and stay status in the `Check_IN_OUT` table.
 
 - **CurrentStaySummary.sql**:
 Provides a real-time summary of current patient stays, including recent rounds, medications dispensed, oxygen levels, blood pressure, and other vitals.
 
 - **DispenseMedicine.sql**:
-Logs medications dispensed in the Med_dispense table, linking them to the corresponding Vitals_RoundsID and prescription details.
+Logs medications dispensed in the `Med_dispense` table, linking them to the corresponding Vitals_RoundsID and prescription details.
 
 - **StaySummary.sql**:
 Generates a detailed summary of ongoing patient stays (those without a discharge date), including start date, room number, length of stay, PCP, medications, last rounds completed, attending nurse, and vitals like blood pressure, temperature, and oxygen levels.
@@ -49,13 +49,13 @@ Generates a detailed summary of ongoing patient stays (those without a discharge
 #### **triggers/**: 
 Contains individual SQL trigger files. These files define automatic actions that occur in response to changes in the database, such as inventory updates after medication dispensing.
 
-- **NewStayTrigger**:  Updates the Room_availibility field in the Room table to 0 (not available) when a new stay is added to the Check_IN_OUT table and the Leave_date is NULL, indicating that the room is currently occupied.
+- **NewStayTrigger**:  Updates the Room_availibility field in the `Room` table to 0 (not available) when a new stay is added to the Check_IN_OUT table and the Leave_date is NULL, indicating that the room is currently occupied.
 
-- **UpdateLeaveDateTrigger**:  Updates the Room_availibility field in the Room table to 1 (available) when a stay's Leave_date is updated from NULL to a specific date, indicating that the room is now vacant.
+- **UpdateLeaveDateTrigger**:  Updates the Room_availibility field in the `Room` table to 1 (available) when a stay's Leave_date is updated from NULL to a specific date, indicating that the room is now vacant.
 
-- **BeforeInsertCheckInOutTrigger**:  Checks room availability before inserting a new entry into the Check_IN_OUT table. If the room is unavailable, it raises an error with the message "Room is not available for check-in."
+- **BeforeInsertCheckInOutTrigger**:  Checks room availability before inserting a new entry into the `Check_IN_OUT` table. If the room is unavailable, it raises an error with the message "Room is not available for check-in.
 
-- **AfterInsertMedDispenseTrigger**:  Reduces the Med_Quantity field in the Medicine table by 1 for the corresponding Medicine_ID when a new entry is added to the Med_dispense table, reflecting that medication has been dispensed.
+- **AfterInsertMedDispenseTrigger**:  Reduces the Med_Quantity field in the Medicine table by 1 for the corresponding Medicine_ID when a new entry is added to the `Med_dispense` table, reflecting that medication has been dispensed.
 
 - **BeforeInsertMedDispenseTrigger**:  Ensures that the total medication dispensed for a specific prescription does not exceed the prescribed daily dosage. It checks the prescribed dosage against the total dispensed entries for the given prescription and date. If the daily dosage limit is exceeded, an error with the message "Daily dosage limit exceeded" is raised.
 
