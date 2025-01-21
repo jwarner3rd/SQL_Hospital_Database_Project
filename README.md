@@ -247,3 +247,11 @@ For a detailed overview, download the data dictionary as a CSV file:
 | Temperature         | decimal(5,2)  | YES  |      | NULL          |                |
 | Checked_on          | datetime      | NO   |      | NULL          |                |
 
+---
+## Contact
+For any questions or feedback, please contact:
+- **Name**: John Warner
+- **Email**: [john.warner.3rd@gmail.com](mailto:john.warner.3rd@gmail.com)
+- **GitHub**: [jwarner3rd](https://github.com/jwarner3rd)
+- **LinkedIn**: [www.linkedin.com/in/john-j-warner/](https://www.linkedin.com/in/john-j-warner/)
+
