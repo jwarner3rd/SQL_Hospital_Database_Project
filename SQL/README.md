@@ -1,3 +1,5 @@
+The HospitalDB database simulates a hospital management database, demonstrating SQL functionality, including triggers and stored procedures. It automates tasks like updating room availability, enforcing prescription dosage limits, and maintaining consistency across interrelated tables such as patients, rooms, and medications."
+
 **Hospital_Export_Full.sql**: This file contains the full SQL code to create the entire database structure. It includes the creation of tables, relationships, constraints, as well as triggers and stored procedures.
 
 **seed.sql**: A script to populate the database with initial data, allowing for testing and demonstration purposes.
