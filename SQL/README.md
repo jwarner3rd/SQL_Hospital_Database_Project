@@ -2,11 +2,41 @@
 
 **seed.sql**: A script to populate the database with initial data, allowing for testing and demonstration purposes.
 
-**Sored Procedures/**: Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
+**Stored Procedures/**: Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
 
 **Triggers/**: Contains individual SQL trigger files. These files define automatic actions that occur in response to changes in the database, such as inventory updates after medication dispensing.
 
+## Stored Procedures
 
+- **AddDiagnosis.sql**:
+
+- **AddLabScreening.sql**:
+
+- **AddPrescription.sql**:
+
+- **AddTest.sql**:
+
+- **AddVitalsRounds.sql**:
+
+- **CalculatePatientCharges.sql**:
+
+- **CheckIn.sql**:
+
+- **ClosePatientStay.sql**:
+
+- **CurrentStaySummary.sql**:
+
+- **DispenseMedicine.sql**:
+
+- **GenerateInvoice.sql**:
+
+- **Stay Summary.sql**:
+
+- **StaySummary.sql**:
+
+- **Stay_Summary.sql**:
+
+- **new_procedure.sql**:
 
 # Database Schema
 
