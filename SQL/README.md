@@ -4,11 +4,14 @@ The HospitalDB database simulates a hospital management database, demonstrating 
 
 The Repository includes:
 
-#### **Hospital_Export_Full.sql**: This file contains the full SQL code to create the entire database structure. It includes the creation of tables, relationships, constraints, as well as triggers and stored procedures.
+#### **Hospital_Export_Full.sql**: 
+This file contains the full SQL code to create the entire database structure. It includes the creation of tables, relationships, constraints, as well as triggers and stored procedures.
 
-#### **seed.sql**: A script to populate the database with initial data, allowing for testing and demonstration purposes.
+#### **seed.sql**: 
+A script to populate the database with initial data, allowing for testing and demonstration purposes.
 
-#### **Stored Procedures/**: Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
+#### **Stored Procedures/**: 
+Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
 
 - **AddDiagnosis.sql**: Inserts a patient's diagnosis information into the Diagnosis table, including the attending doctor, patient ID, diagnosis start date, and related details.
 
@@ -32,7 +35,8 @@ The Repository includes:
 
 - **Stay Summary.sql**: Provides a comprehensive summary of ongoing patient stays with no discharge date. Includes start date, room number, length of stay, PCP, medications, last rounds completed, attending nurse, and vital signs (blood pressure, temperature, oxygen levels).
 
-#### **triggers/**: Contains individual SQL trigger files. These files define automatic actions that occur in response to changes in the database, such as inventory updates after medication dispensing.
+#### **triggers/**: 
+Contains individual SQL trigger files. These files define automatic actions that occur in response to changes in the database, such as inventory updates after medication dispensing.
 
 - **NewStayTrigger**:  Updates the Room_availibility field in the Room table to 0 (not available) when a new stay is added to the Check_IN_OUT table and the Leave_date is NULL, indicating that the room is currently occupied.
 
