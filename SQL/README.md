@@ -2,9 +2,9 @@
 
 **seed.sql**: A script to populate the database with initial data, allowing for testing and demonstration purposes.
 
-**procedures/**: Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
+**Sored Procedures/**: Contains individual stored procedures. These files define specific actions or logic to be executed on the database, such as adding a new patient or updating medication records.
 
-**triggers/**: Contains individual SQL trigger files. These files define automatic actions that occur in response to changes in the database, such as inventory updates after medication dispensing.
+**Triggers/**: Contains individual SQL trigger files. These files define automatic actions that occur in response to changes in the database, such as inventory updates after medication dispensing.
 
 
 
